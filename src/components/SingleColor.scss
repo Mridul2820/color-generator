@@ -33,6 +33,10 @@ input {
     text-transform: capitalize;
     color: var(--clr-white);
     cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
 }
 @media screen and (max-width: 576px) {
     .container h3 {

@@ -12,7 +12,13 @@ const App = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log('hello')
+        try {
+            let colors = new Values(color).all(10)
+            console.log(colors);
+        } catch (error) {
+            setError(true)
+        }
+        
     }
 
     return (
@@ -25,10 +31,17 @@ const App = () => {
                             type="text" 
                             value={color} 
                             onChange={e => setColor(e.target.value)}
-                            placeholder="#008000 or Green"
+                            placeholder="#080 or #008000 or Green"
+                            className={ `${error ? 'error' : null}`}
                         />
+                        
+                        {/* {
+                            error ? <label htmlFor="input">Try somthing like : #080 or #008000 or Green</label> : ''
+                        } */}
+                        <button className="btn" type='submit'>
+                            Submit
+                        </button>
                     </form>
-                    <button className="btn" type='submit'>Submit</button>
                 </section>
                 <section className="colors">
                     <h4>color list</h4>
