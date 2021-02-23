@@ -10,13 +10,13 @@ const SingleColor = ({ rgb, weight, index}) => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setAlert(false)
-        }, 1000)
+        }, 1500)
         return () => clearTimeout(timeout)
     }, [alert])
 
     return (
         <article 
-            className={`color ${index > 10 && 'color-light'}`} 
+            className={`color ${index > 10 && 'color-light'} ${alert && 'active'}`} 
             style={{backgroundColor:`rgb(${bcg})`}} 
             onClick={() => {
                 setAlert(true)
@@ -26,7 +26,7 @@ const SingleColor = ({ rgb, weight, index}) => {
             <p className="percent-value">{weight}%</p>
             <p className="color-value">{hex}</p>
             
-            {alert && <p className="alert">Copied to Clipboard</p>}
+            {alert && <p className="alert">Copied to Clipboard!</p>}
         </article>
     )
 }
